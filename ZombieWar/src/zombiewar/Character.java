@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package zombiewar;
 
 /**
@@ -9,5 +5,25 @@ package zombiewar;
  * @author shosh
  */
 public abstract class Character {
-    
+    //Attributes ---------------------------------------------------------------
+    private int health;
+    private int attack;
+    //Methods ------------------------------------------------------------------
+    /**
+     * @param damage
+     * 
+     * context Character::takeDamage(damage : int) pre:
+     *      damage >= 0
+     */
+    public void takeDamage(int damage){
+        
+        health -= damage;
+    }
+    public boolean isAlive(){
+        return health > 0;
+    }
+    public int getAttack(){
+        return attack;
+    }
+    @Override abstract public String toString();
 }
