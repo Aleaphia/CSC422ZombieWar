@@ -9,5 +9,8 @@ package zombiewar;
  * @author shosh
  */
 public class Child extends Human {
-    
+    public Child(){
+        health = 20;
+        attack = 2;
+    }
 }

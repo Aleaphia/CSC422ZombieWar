@@ -30,6 +30,15 @@ public class ZombieWarController {
         generateHumanArmy();
         generateZombieArmy();
         
+        for (int i = 0; i < humanArmySize; i++){
+            System.out.print( humanArmy[i] + " ");
+        }
+        
+        System.out.println();
+        
+        for (int i = 0; i < zombieArmySize; i++){
+            System.out.print( zombieArmy[i] + " ");
+        }
     }
     
     
@@ -69,18 +78,4 @@ public class ZombieWarController {
             zombieArmy[i] = zombie;
         }
     }
-    /*Note:
-    To use directAttackDamage() we would need to have Army be aware of the 
-    ZombieWarController instance, which seems like unnessiary coupling.
-    
-    Instead we can have Armies or Characters return damage values and
-    simulateZombieWar iterate through the armies.
-    */
-    //public void directAttackDamage(int damage){}
-    
-    
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
 }

@@ -9,5 +9,8 @@ package zombiewar;
  * @author shosh
  */
 public class Tank extends Zombie {
-    
+    public Tank(){
+        health = 150;
+        attack = 20;
+    }
 }

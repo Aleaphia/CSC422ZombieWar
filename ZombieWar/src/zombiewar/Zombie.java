@@ -9,5 +9,4 @@ package zombiewar;
  * @author shosh
  */
 public abstract class Zombie extends Character{
-    
 }

@@ -9,5 +9,8 @@ package zombiewar;
  * @author shosh
  */
 public class Teacher extends Human {
-    
+    public Teacher(){
+        health = 50;
+        attack = 5;
+    }
 }

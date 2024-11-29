@@ -6,8 +6,8 @@ package zombiewar;
  */
 public abstract class Character {
     //Attributes ---------------------------------------------------------------
-    private int health;
-    private int attack;
+    protected int health;
+    protected int attack;
     //Methods ------------------------------------------------------------------
     /**
      * @param damage
@@ -25,5 +25,7 @@ public abstract class Character {
     public int getAttack(){
         return attack;
     }
-    @Override abstract public String toString();
+    @Override public String toString(){
+        return this.getClass().getSimpleName() + "(" + health + " hp, " + attack + " atk)";
+    }
 }

@@ -9,5 +9,8 @@ package zombiewar;
  * @author shosh
  */
 public class CommonInfect extends Zombie {
-    
+    public CommonInfect(){
+        health = 30;
+        attack = 5;
+    }
 }

@@ -10,5 +10,4 @@ package zombiewar;
  * @author shosh
  */
 public abstract class Human extends Character{
-    
 }

@@ -9,5 +9,8 @@ package zombiewar;
  * @author shosh
  */
 public class Soldier extends Human{
-    
+    public Soldier(){
+        health = 100;
+        attack = 10;
+    }
 }
