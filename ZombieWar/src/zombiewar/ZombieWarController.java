@@ -30,17 +30,19 @@ public class ZombieWarController {
         generateHumanArmy();
         generateZombieArmy();
         
-        System.out.printf("We have " + humanArmySize + " survivors trying to escape.");
+        System.out.println("We have " + humanArmySize + " survivors trying to escape.");
         
         System.out.println();
         
         //if statement is to change the verbiage if there is only 1 zombie
         if (zombieArmySize == 1) {
-            System.out.printf("There is " + zombieArmySize + " zombie between them and escape.");
+            System.out.println("There is " + zombieArmySize + " zombie between them and escape.");
         }
         else {
-            System.out.printf("There are " + zombieArmySize + " zombies between them and escape.");
+            System.out.println("There are " + zombieArmySize + " zombies between them and escape.");
         }
+        
+        System.out.println();
         
         //used to control the loops in the attack phase
         int startZArmySize = zombieArmySize;
@@ -88,7 +90,7 @@ public class ZombieWarController {
          
         }
         
-        System.out.printf( humanArmySize + " survivors were able to escape.");
+        System.out.println( humanArmySize + " survivors were able to escape.");
         
         System.out.println();
         
