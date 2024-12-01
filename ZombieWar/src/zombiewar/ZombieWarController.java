@@ -16,7 +16,11 @@ public class ZombieWarController {
     private static enum Humans {Child, Teacher, Soldier};
     private static enum Zombies {CommonInfect, Tank};
  
-    
+    private int childCount;
+    private int teacherCount;
+    private int soldierCount;
+    private int commonInfectedCount;
+    private int tankCount;
     private int humanArmySize;
     private int zombieArmySize;
     private Human[] humanArmy;
@@ -29,18 +33,26 @@ public class ZombieWarController {
     public void simulateZombieWar(){
         generateHumanArmy();
         generateZombieArmy();
-        
-        System.out.println("We have " + humanArmySize + " survivors trying to escape.");
+
+        // Dynamic labeling
+        String childLabel = (this.childCount == 1) ? " child, " : " children, ";
+        String teacherLabel = (this.teacherCount == 1) ? " teacher, " : " teachers, ";
+        String soldierLabel = (this.soldierCount == 1) ? " soldier" : " soldiers";
+        String survivorLabel = (this.humanArmySize == 1) ? " survivor " : " survivors ";
+        String tankLabel = (this.tankCount == 1) ? " tank" : " tanks";
+        String zombieLabel = (this.zombieArmySize == 1) ? " zombie " : " zombies ";
+        String isAre = (this.zombieArmySize == 1) ? "is" : "are";
+
+        System.out.println("We have " + humanArmySize + survivorLabel + "trying to escape.(" + this.childCount + childLabel
+                                                                                        + this.teacherCount + teacherLabel 
+                                                                                        + this.soldierCount + soldierLabel + ")");
         
         System.out.println();
         
-        //if statement is to change the verbiage if there is only 1 zombie
-        if (zombieArmySize == 1) {
-            System.out.println("There is " + zombieArmySize + " zombie between them and escape.");
-        }
-        else {
-            System.out.println("There are " + zombieArmySize + " zombies between them and escape.");
-        }
+        System.out.println("There " + isAre + " " + zombieArmySize  + zombieLabel + "between them and escape.(" + this.commonInfectedCount + 
+                                                                                                " common infected, "
+                                                                                                + this.tankCount 
+                                                                                                + tankLabel + ")");
         
         System.out.println();
         
@@ -105,6 +117,10 @@ public class ZombieWarController {
         //Select random size and make array
         humanArmySize = rand.nextInt(1, MAX_ARMY_SIZE);
         humanArmy = new Human[humanArmySize];
+
+        this.childCount = 0;
+        this.teacherCount = 0;
+        this.soldierCount = 0;
         
         //Array of human types used for random selection
         Humans[] humanTypes = Humans.values();
@@ -112,9 +128,12 @@ public class ZombieWarController {
         for (int i = 0; i < humanArmySize; i++){
             Human human;
             switch (humanTypes[rand.nextInt(humanTypes.length)]){
-                case Child ->  human = new Child();
-                case Teacher -> human = new Teacher();
-                default -> human = new Soldier();
+                case Child ->  {human = new Child();
+                                this.childCount += 1;}
+                case Teacher -> {human = new Teacher();
+                                 this.teacherCount += 1;}
+                default -> {human = new Soldier();
+                            this.soldierCount += 1;}
             }
             
             humanArmy[i] = human;
@@ -123,6 +142,9 @@ public class ZombieWarController {
     private void generateZombieArmy(){
         zombieArmySize = rand.nextInt(1, MAX_ARMY_SIZE);
         zombieArmy = new Zombie[zombieArmySize];
+
+        this.commonInfectedCount = 0;
+        this.tankCount = 0;
         
         //Array of zombie types used for random selection
         Zombies[] zombieTypes = Zombies.values();
@@ -130,8 +152,10 @@ public class ZombieWarController {
         for (int i = 0; i < zombieArmySize; i++){
             Zombie zombie;
             switch (zombieTypes[rand.nextInt(zombieTypes.length)]){
-                case CommonInfect ->  zombie = new CommonInfect();
-                default -> zombie = new Tank();
+                case CommonInfect ->  {zombie = new CommonInfect();
+                                       this.commonInfectedCount += 1;}
+                default -> {zombie = new Tank();
+                            this.tankCount += 1;}
             }
             
             zombieArmy[i] = zombie;
