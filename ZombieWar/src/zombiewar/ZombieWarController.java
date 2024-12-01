@@ -53,42 +53,45 @@ public class ZombieWarController {
             
            //humans take first turn attacking
             for(int i = 0; i < startHArmySize; i++) {
-                //System.out.println(humanArmy[i]);
-               //gets current humans atk
-               int humanAtk = humanArmy[i].getAttack();
-               for(int j = 0; j < startZArmySize; j++) {
-                   //checks for live zombie to atk
-                   if(zombieArmy[j].isAlive()) {
-                      zombieArmy[j].takeDamage(humanAtk);
-                      //if the zombe died from atk, they are removed from the zombie army count
-                      if(!zombieArmy[j].isAlive()) {
-                        zombieArmySize -= 1;
-                      }
-                      break;
-                   }                   
+                //check to prevent dead humans from attacking
+               if(humanArmy[i].isAlive()){
+                    //gets current humans atk
+                   int humanAtk = humanArmy[i].getAttack();
+                   for(int j = 0; j < startZArmySize; j++) {
+                       //checks for live zombie to atk
+                       if(zombieArmy[j].isAlive()) {
+                          zombieArmy[j].takeDamage(humanAtk);
+                          //if the zombe died from atk, they are removed from the zombie army count
+                          if(!zombieArmy[j].isAlive()) {
+                            zombieArmySize -= 1;
+                          }
+                          break;
+                       }                   
+                   }
                }
-               
            }
            
            //zombies take second turn attacking
            for(int i = 0; i < startZArmySize; i++) {
-               // get atk for current attacking zombie
-               int zombieAtk = zombieArmy[i].getAttack();
-               
-               for(int j = 0; j < startHArmySize; j++) {
-                   //checks for live human to atk
-                   if (humanArmy[j].isAlive()) {
-                       humanArmy[j].takeDamage(zombieAtk);
-                       //if the human died, they are removed from the count for the army size
-                       if(!humanArmy[j].isAlive()) {
-                           humanArmySize -= 1;
-                       }
-                       break;
-                   }
-               }
-               
+               //check to prevent dead zombies from attacking
+               if(zombieArmy[i].isAlive()) {
+                    // get atk for current attacking zombie
+                    int zombieAtk = zombieArmy[i].getAttack();
+
+                    for(int j = 0; j < startHArmySize; j++) {
+                        //checks for live human to atk
+                        if (humanArmy[j].isAlive()) {
+                            humanArmy[j].takeDamage(zombieAtk);
+                            //if the human died, they are removed from the count for the army size
+                            if(!humanArmy[j].isAlive()) {
+                                humanArmySize -= 1;
+                            }
+                            break;
+                        }
+                    }
+
+                }
            }
-         
         }
         
         System.out.println( humanArmySize + " survivors were able to escape.");
