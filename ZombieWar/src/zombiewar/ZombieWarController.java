@@ -53,6 +53,7 @@ public class ZombieWarController {
             
            //humans take first turn attacking
             for(int i = 0; i < startHArmySize; i++) {
+                //System.out.println(humanArmy[i]);
                //gets current humans atk
                int humanAtk = humanArmy[i].getAttack();
                for(int j = 0; j < startZArmySize; j++) {
