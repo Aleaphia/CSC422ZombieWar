@@ -80,6 +80,7 @@ public class ZombieWarController {
                               printDeathMessage(humanArmy[i], zombieArmy[j]);
                               zombieArmySize -= 1;
                           }
+                          break;
                        }                   
                    }
                }
@@ -101,6 +102,7 @@ public class ZombieWarController {
                                 printDeathMessage(zombieArmy[i], humanArmy[j]);
                                 humanArmySize -= 1;
                             }
+                            break;
                         }
                     }
 
