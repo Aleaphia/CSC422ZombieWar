@@ -67,17 +67,19 @@ public class ZombieWarController {
             for(int i = 0; i < startHArmySize; i++) {
                 //check to prevent dead humans from attacking
                if(humanArmy[i].isAlive()){
+                   //System.out.println("DEBUG attacker: " + humanArmy[i]);
                     //gets current humans atk
                    int humanAtk = humanArmy[i].getAttack();
                    for(int j = 0; j < startZArmySize; j++) {
                        //checks for live zombie to atk
                        if(zombieArmy[j].isAlive()) {
                           zombieArmy[j].takeDamage(humanAtk);
+                          //System.out.println("DEBUG: " + zombieArmy[j]);
                           //if the zombe died from atk, they are removed from the zombie army count
                           if(!zombieArmy[j].isAlive()) {
-                            zombieArmySize -= 1;
+                              printDeathMessage(humanArmy[i], zombieArmy[j]);
+                              zombieArmySize -= 1;
                           }
-                          break;
                        }                   
                    }
                }
@@ -96,9 +98,9 @@ public class ZombieWarController {
                             humanArmy[j].takeDamage(zombieAtk);
                             //if the human died, they are removed from the count for the army size
                             if(!humanArmy[j].isAlive()) {
+                                printDeathMessage(zombieArmy[i], humanArmy[j]);
                                 humanArmySize -= 1;
                             }
-                            break;
                         }
                     }
 
@@ -106,12 +108,19 @@ public class ZombieWarController {
            }
         }
         
+        System.out.println();
         System.out.println( humanArmySize + " survivors were able to escape.");
-        
         System.out.println();
         
     }
     
+    private void printDeathMessage(Character killer, Character victim){
+        System.out.println(
+            killer.getClass().getSimpleName() + " " + killer.getName() + //Killer class and name
+            " killed " +
+            victim.getClass().getSimpleName() + " " + victim.getName() //Vitim class and name
+        );
+    }
     
     private void generateHumanArmy(){
         //Select random size and make array
@@ -128,12 +137,9 @@ public class ZombieWarController {
         for (int i = 0; i < humanArmySize; i++){
             Human human;
             switch (humanTypes[rand.nextInt(humanTypes.length)]){
-                case Child ->  {human = new Child();
-                                this.childCount += 1;}
-                case Teacher -> {human = new Teacher();
-                                 this.teacherCount += 1;}
-                default -> {human = new Soldier();
-                            this.soldierCount += 1;}
+                case Child ->  {human = new Child(++this.childCount + "");}
+                case Teacher -> {human = new Teacher(++this.teacherCount + "");}
+                default -> {human = new Soldier(++this.soldierCount + "");}
             }
             
             humanArmy[i] = human;
@@ -152,10 +158,8 @@ public class ZombieWarController {
         for (int i = 0; i < zombieArmySize; i++){
             Zombie zombie;
             switch (zombieTypes[rand.nextInt(zombieTypes.length)]){
-                case CommonInfect ->  {zombie = new CommonInfect();
-                                       this.commonInfectedCount += 1;}
-                default -> {zombie = new Tank();
-                            this.tankCount += 1;}
+                case CommonInfect ->  {zombie = new CommonInfect(++this.commonInfectedCount + "");}
+                default -> {zombie = new Tank(++this.tankCount + "");}
             }
             
             zombieArmy[i] = zombie;

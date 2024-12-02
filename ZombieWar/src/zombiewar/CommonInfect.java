@@ -9,8 +9,10 @@ package zombiewar;
  * @author shosh
  */
 public class CommonInfect extends Zombie {
-    public CommonInfect(){
+    public CommonInfect(String name){
+        super(name);
         health = 30;
         attack = 5;
+        
     }
 }
