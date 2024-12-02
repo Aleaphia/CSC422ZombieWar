@@ -13,7 +13,11 @@ public abstract class Human extends Character{
     // Attributes specific to Human characters
     private boolean isInfected = false;
     private String trait;
-
+    
+    //Methods
+    public Human(String name){
+        super(name);
+    }
     /**
      * Gets the infection status of the human.
      * 

@@ -9,7 +9,8 @@ package zombiewar;
  * @author shosh
  */
 public class Soldier extends Human{
-    public Soldier(){
+    public Soldier(String name){
+        super(name);
         health = 100;
         attack = 10;
     }

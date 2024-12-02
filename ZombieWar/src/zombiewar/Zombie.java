@@ -9,4 +9,7 @@ package zombiewar;
  * @author shosh
  */
 public abstract class Zombie extends Character{
+    public Zombie(String name){
+        super(name);
+    }
 }

@@ -8,7 +8,12 @@ public abstract class Character {
     //Attributes ---------------------------------------------------------------
     protected int health;
     protected int attack;
+    protected String name;
     //Methods ------------------------------------------------------------------
+    public Character(String name){
+        this.name = name;
+    }
+    
     /**
      * @param damage
      * 
@@ -25,7 +30,10 @@ public abstract class Character {
     public int getAttack(){
         return attack;
     }
+    public String getName(){
+        return name;
+    }
     @Override public String toString(){
-        return this.getClass().getSimpleName() + "(" + health + " hp, " + attack + " atk)";
+        return this.getClass().getSimpleName() + " " + name + "(" + health + " hp, " + attack + " atk)";
     }
 }

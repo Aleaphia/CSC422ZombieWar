@@ -9,7 +9,8 @@ package zombiewar;
  * @author shosh
  */
 public class Child extends Human {
-    public Child(){
+    public Child(String name){
+        super(name);
         health = 20;
         attack = 2;
     }

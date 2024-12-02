@@ -9,7 +9,8 @@ package zombiewar;
  * @author shosh
  */
 public class Tank extends Zombie {
-    public Tank(){
+    public Tank(String name){
+        super(name);
         health = 150;
         attack = 20;
     }
