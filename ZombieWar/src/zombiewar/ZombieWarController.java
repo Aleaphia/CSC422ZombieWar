@@ -77,7 +77,6 @@ public class ZombieWarController {
                           if(!zombieArmy[j].isAlive()) {
                             zombieArmySize -= 1;
                           }
-                          break;
                        }                   
                    }
                }
@@ -98,7 +97,6 @@ public class ZombieWarController {
                             if(!humanArmy[j].isAlive()) {
                                 humanArmySize -= 1;
                             }
-                            break;
                         }
                     }
 
