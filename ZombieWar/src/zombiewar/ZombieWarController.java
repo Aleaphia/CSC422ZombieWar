@@ -10,11 +10,12 @@ import java.util.*;
  */
 public class ZombieWarController {
 
-    //Attributes ---------------------------------------------------------------
+    //Attributes ------------------git add---------------------------------------------
     private Random rand = new Random();
     private static final int MAX_ARMY_SIZE = 15;
     private static enum Humans {Child, Teacher, Soldier};
     private static enum Zombies {CommonInfect, Tank};
+    private static enum Weapons {AssaultRifle, Axe, Crowbar, FryingPan, Shotgun, SubmachineGun};
  
     private int childCount;
     private int teacherCount;
@@ -33,7 +34,6 @@ public class ZombieWarController {
     public void simulateZombieWar(){
         generateHumanArmy();
         generateZombieArmy();
-
         // Dynamic labeling
         String childLabel = (this.childCount == 1) ? " child, " : " children, ";
         String teacherLabel = (this.teacherCount == 1) ? " teacher, " : " teachers, ";
@@ -145,6 +145,7 @@ public class ZombieWarController {
             humanArmy[i] = human;
         }
     }
+    
     private void generateZombieArmy(){
         zombieArmySize = rand.nextInt(1, MAX_ARMY_SIZE);
         zombieArmy = new Zombie[zombieArmySize];
@@ -164,5 +165,22 @@ public class ZombieWarController {
             
             zombieArmy[i] = zombie;
         }
+    }
+    
+    private Weapon genrateRandomGun(){
+        //Array of gun types used for random selection
+        Weapons[] weaponTypes  = Weapons.values();
+        
+        Weapon weapon = null;
+        switch(weaponTypes[rand.nextInt(weaponTypes.length)]){
+            case AssaultRifle -> weapon = new AssaultRifle();
+            case Axe -> weapon = new Axe();
+            case Crowbar -> weapon = new Crowbar();
+            case FryingPan -> weapon = new FryingPan();
+            case Shotgun -> weapon = new Shotgun();
+            case SubmachineGun -> weapon = new SubmachineGun();
+            default -> weapon = null;
+        }
+        return weapon;
     }
 }
