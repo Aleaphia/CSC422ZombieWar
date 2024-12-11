@@ -15,7 +15,7 @@ public class ZombieWarController {
     private static final int MAX_ARMY_SIZE = 15;
     private static enum Humans {Child, Teacher, Soldier};
     private static enum Zombies {CommonInfect, Tank};
-    private static enum Weapons {AssaultRifle, Axe, Crowbar, FryingPan, Shotgun, SubmachineGun}; //TO-DO add weapon types
+    private static enum Weapons {AssaultRifle, Axe, Crowbar, FryingPan, Shotgun, SubmachineGun};
  
     private int childCount;
     private int teacherCount;
@@ -34,7 +34,7 @@ public class ZombieWarController {
     public void simulateZombieWar(){
         generateHumanArmy();
         generateZombieArmy();
-
+g
         // Dynamic labeling
         String childLabel = (this.childCount == 1) ? " child, " : " children, ";
         String teacherLabel = (this.teacherCount == 1) ? " teacher, " : " teachers, ";
