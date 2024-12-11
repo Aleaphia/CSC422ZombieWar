@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class ZombieWarController {
 
-    //Attributes ---------------------------------------------------------------
+    //Attributes ------------------git add---------------------------------------------
     private Random rand = new Random();
     private static final int MAX_ARMY_SIZE = 15;
     private static enum Humans {Child, Teacher, Soldier};
@@ -34,7 +34,6 @@ public class ZombieWarController {
     public void simulateZombieWar(){
         generateHumanArmy();
         generateZombieArmy();
-g
         // Dynamic labeling
         String childLabel = (this.childCount == 1) ? " child, " : " children, ";
         String teacherLabel = (this.teacherCount == 1) ? " teacher, " : " teachers, ";
