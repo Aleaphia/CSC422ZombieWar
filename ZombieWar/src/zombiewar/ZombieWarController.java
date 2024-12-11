@@ -15,7 +15,7 @@ public class ZombieWarController {
     private static final int MAX_ARMY_SIZE = 15;
     private static enum Humans {Child, Teacher, Soldier};
     private static enum Zombies {CommonInfect, Tank};
-    private static enum Weapons {}; //TO-DO add weapon types
+    private static enum Weapons {AssaultRifle, Axe, Crowbar, FryingPan, Shotgun, SubmachineGun}; //TO-DO add weapon types
  
     private int childCount;
     private int teacherCount;
@@ -172,11 +172,14 @@ public class ZombieWarController {
         //Array of gun types used for random selection
         Weapons[] weaponTypes  = Weapons.values();
         
-        Weapon weapon;
+        Weapon weapon = null;
         switch(weaponTypes[rand.nextInt(weaponTypes.length)]){
-            /*
-            TO-DO: Add cases for each type of weapon
-            */
+            case AssaultRifle -> weapon = new AssaultRifle();
+            case Axe -> weapon = new Axe();
+            case Crowbar -> weapon = new Crowbar();
+            case FryingPan -> weapon = new FryingPan();
+            case Shotgun -> weapon = new Shotgun();
+            case SubmachineGun -> weapon = new SubmachineGun();
             default -> weapon = null;
         }
         return weapon;
