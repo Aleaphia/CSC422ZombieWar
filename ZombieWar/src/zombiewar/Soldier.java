@@ -14,4 +14,9 @@ public class Soldier extends Human{
         health = 100;
         attack = 10;
     }
+    public Soldier(String name, Weapon weapon){
+        super(name, weapon);
+        health = 100;
+        attack = 10;
+    }
 }
