@@ -13,10 +13,15 @@ public abstract class Human extends Character{
     // Attributes specific to Human characters
     private boolean isInfected = false;
     private String trait;
+    private Weapon weapon;
     
     //Methods
     public Human(String name){
         super(name);
+    }
+    public Human(String name, Weapon weapon){
+        super(name);
+        this.weapon = weapon;
     }
     /**
      * Gets the infection status of the human.
@@ -52,6 +57,15 @@ public abstract class Human extends Character{
      */
     public void setTrait(String trait) {
         this.trait = trait;
+    }
+
+    /**
+     * Gets the weapon of the human.
+     * 
+     * @return the weapon of the human.
+     */
+    public Weapon getWeapon() {
+        return this.weapon;
     }
 
     /**

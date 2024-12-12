@@ -133,13 +133,17 @@ public class ZombieWarController {
         
         //Array of human types used for random selection
         Humans[] humanTypes = Humans.values();
-        
+
         for (int i = 0; i < humanArmySize; i++){
             Human human;
+
+            // Initialize weapon
+            Weapon weapon = genrateRandomGun();
+
             switch (humanTypes[rand.nextInt(humanTypes.length)]){
-                case Child ->  {human = new Child(++this.childCount + "");}
-                case Teacher -> {human = new Teacher(++this.teacherCount + "");}
-                default -> {human = new Soldier(++this.soldierCount + "");}
+                case Child ->  {human = new Child(++this.childCount + "", weapon);}
+                case Teacher -> {human = new Teacher(++this.teacherCount + "", weapon);}
+                default -> {human = new Soldier(++this.soldierCount + "", weapon);}
             }
             
             humanArmy[i] = human;
