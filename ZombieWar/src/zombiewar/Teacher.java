@@ -14,4 +14,9 @@ public class Teacher extends Human {
         health = 50;
         attack = 5;
     }
+    public Teacher(String name, Weapon weapon){
+        super(name, weapon);
+        health = 50;
+        attack = 5;
+    }
 }

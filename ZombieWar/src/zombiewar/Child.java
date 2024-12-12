@@ -14,4 +14,9 @@ public class Child extends Human {
         health = 20;
         attack = 2;
     }
+    public Child(String name, Weapon weapon){
+        super(name, weapon);
+        health = 20;
+        attack = 2;
+    }
 }
