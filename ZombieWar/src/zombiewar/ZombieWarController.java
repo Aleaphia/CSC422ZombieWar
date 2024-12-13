@@ -115,12 +115,18 @@ public class ZombieWarController {
     }
     
     private void printDeathMessage(Character killer, Character victim){
-        System.out.println(
-            killer.getClass().getSimpleName() + " " + killer.getName() + //Killer class and name
-            " killed " +
-            victim.getClass().getSimpleName() + " " + victim.getName() //Vitim class and name
-        );
+    String message = killer.getClass().getSimpleName() + " " + killer.getName() + 
+                     " killed " + victim.getClass().getSimpleName() + " " + victim.getName();
+
+    if (killer instanceof Human) {
+        Human humanKiller = (Human) killer;
+        Weapon weapon = humanKiller.getWeapon();
+        message += " using a " + weapon.getName() + " (" + weapon.getDamage() + " damage, " + (int)(weapon.getAccuracy() * 100) + "% accuracy)";
     }
+
+    System.out.println(message);
+}
+
     
     private void generateHumanArmy(){
         //Select random size and make array
