@@ -26,6 +26,10 @@ public abstract class Weapon {
     public boolean hitsTarget() {
         return Math.random() < accuracy;
     }
+    
+    public int getAttack(){
+        return (hitsTarget())? damage: 0;
+    }
 
     @Override
     public String toString() {

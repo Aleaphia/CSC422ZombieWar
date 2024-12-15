@@ -67,12 +67,23 @@ public abstract class Human extends Character{
     public Weapon getWeapon() {
         return this.weapon;
     }
-
+ /**
+     * Returns a int representation attack damage preformed by a human.
+     * 
+     * @return int representing attack damage.
+     */
+    
+    @Override
+    public int getAttack() {
+        return (weapon == null)? super.getAttack(): weapon.getAttack();
+    }
+    
     /**
      * Returns a string representation of the human for debugging and logging.
      * 
      * @return String representation of the human's health, attack, and type.
      */
+    
     @Override
     public String toString() {
         return "Human(" + this.getClass().getSimpleName() + ", " + health + " hp, " + attack + " atk)";
